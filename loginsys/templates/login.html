@@ -1,6 +1,14 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
 <form action="/auth/login/" method="post">
   {% csrf_token %}
   {{ form }}
 
   <input type="submit" value="Ввійти">
 </form>
+
+<p> Або через соц. мережі в один клік:
+<a href ="{% provider_login_url "facebook" method="js_sdk" %}">Facebook connect</a>
+<a href ="{% provider_login_url "twitter" method="js_sdk" %}">Twitter connect</a>
+<a href ="{% provider_login_url "vk" method="js_sdk" %}">Vk connect</a></p>
